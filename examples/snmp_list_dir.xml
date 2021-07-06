@@ -1,0 +1,9 @@
+<rpc message-id="767" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get>
+        <filter type="subtree">
+            <featurename istop="true" type="mib">
+                <huaweiFlhFileEntry position="iso.org.dod.internet.private.enterprises.huawei.huaweiUtility.hwFlash.huaweiFlashManMIBObjects.huaweiFlashDevice.hwFlashPartitions.hwFlhFiles.huaweiFlhFileTable" number="300"><hwFlhFileName/><hwFlhFileSize/><hwFlhFileTime/></huaweiFlhFileEntry>
+            </featurename>
+        </filter>
+    </get>
+</rpc>
