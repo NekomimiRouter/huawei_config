@@ -1,7 +1,8 @@
 #!/bin/bash
-# Huawei switches Netconf HTTP API demo
+# Huawei switches NETCONF HTTP API demo
+# https://github.com/NekomimiRouter/huawei_config
 
-# config here
+# device connection settings here
 DEVICE_HTTPS_URL_BASE="https://192.168.1.253"
 DEVICE_USERNAME="admin"
 DEVICE_PASSWORD="Admin@huawei.com"
