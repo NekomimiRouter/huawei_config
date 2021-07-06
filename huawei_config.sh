@@ -79,7 +79,7 @@ function config() {
 function upload_file() {
     curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/simple/view/main/upload.cgi" \
         -H "Cookie: SessionID=${SESSION_ID}; Token=${TOKEN}" \
-        --form "uploadFile_fileDivfileInput=@$1;filename=$2" -Lv
+        --form "uploadFile_fileDivfileInput=@$1;filename=$2"
 }
 
 # Usage: download_file remote_path local_path
