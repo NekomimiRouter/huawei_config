@@ -2,7 +2,11 @@
     <get>
         <filter type="subtree">
             <featurename istop="true" type="mib">
-                <huaweiFlhFileEntry position="iso.org.dod.internet.private.enterprises.huawei.huaweiUtility.hwFlash.huaweiFlashManMIBObjects.huaweiFlashDevice.hwFlashPartitions.hwFlhFiles.huaweiFlhFileTable" number="300"><hwFlhFileName/><hwFlhFileSize/><hwFlhFileTime/></huaweiFlhFileEntry>
+                <huaweiFlhFileEntry position="iso.org.dod.internet.private.enterprises.huawei.huaweiUtility.hwFlash.huaweiFlashManMIBObjects.huaweiFlashDevice.hwFlashPartitions.hwFlhFiles.huaweiFlhFileTable" number="300">
+                    <hwFlhFileName/>
+                    <hwFlhFileSize/>
+                    <hwFlhFileTime/>
+                </huaweiFlhFileEntry>
             </featurename>
         </filter>
     </get>
