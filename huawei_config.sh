@@ -34,8 +34,8 @@ function keepalive() {
     echo "Keepalive."
 }
 
-# get another token
-# argument "_" is required
+# Get another token
+# Note: the argument "_" is required, its content does not matter
 function token_refresh() {
     RET_TEMP=$(
         curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/token.cgi?_=0" \
@@ -48,7 +48,7 @@ function token_refresh() {
     echo "Token refreshed."
 }
 
-# Unknown
+# Unknown function
 # call patterns:
 # "CustomizeCode=173"
 # "CustomizeCode=126"
@@ -61,6 +61,7 @@ function customize_service() {
 }
 
 # get/set device status
+# Usage: config path/to/commands.xml
 function config() {
     CONFIG_XML=$(<"$1")
 
@@ -71,6 +72,22 @@ function config() {
         --data "MessageID=114514&${CONFIG_XML}]]>]]>"
 
     echo -e "\n\nConfig done."
+}
+
+# Usage: upload_file local_path remote_filename
+# example: `upload_file ./s1720.cfg s1720.cfg`
+function upload_file() {
+    curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/simple/view/main/upload.cgi" \
+        -H "Cookie: SessionID=${SESSION_ID}; Token=${TOKEN}" \
+        --form "uploadFile_fileDivfileInput=@$1;filename=$2" -Lv
+}
+
+# Usage: download_file remote_path local_path
+# example: `download_file "flash:/s1720-gw-v200r019sph025.pat" "./test.pat"`
+function download_file() {
+    curl --insecure --compressed -X 'GET' 'https://192.168.1.253/simple/view/main/download.cgi?0_1' \
+        -H "Cookie: SessionID=${SESSION_ID}; filename=\"$1\"; Token=${TOKEN}" \
+        --output "$2"
 }
 
 source ./credential.sh || true
