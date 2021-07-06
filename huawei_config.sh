@@ -74,6 +74,4 @@ function config() {
 }
 
 login
-keepalive
-token_refresh
 config ./examples/cli_config_auth.xml
