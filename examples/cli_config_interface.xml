@@ -10,11 +10,13 @@
             <energy-efficient-ethernet>enable</energy-efficient-ethernet>
             <port>link-type access</port>
             <stp>edged-port enable</stp>
-            <quit></quit>
+            <quit/>
             <interface>Gi0/0/11</interface>
             <description>"Test Trunk Port"</description>
             <undo>shutdown</undo>
             <port>link-type trunk</port>
+            <port>trunk pvid vlan 100</port>
+            <port>trunk allow-pass vlan all</port>
             <trust>8021p</trust>
             <trust>dscp</trust>
             <dhcp>snooping trusted</dhcp>

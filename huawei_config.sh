@@ -76,6 +76,7 @@ function config() {
 
 # Usage: upload_file local_path remote_filename
 # example: `upload_file ./s1720.cfg s1720.cfg`
+# remote filename must be full lower case & ends in a known extension (e.g. *.cfg) & must not be too long
 function upload_file() {
     curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/simple/view/main/upload.cgi" \
         -H "Cookie: SessionID=${SESSION_ID}; Token=${TOKEN}" \
