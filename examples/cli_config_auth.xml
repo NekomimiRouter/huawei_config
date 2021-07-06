@@ -1,0 +1,15 @@
+<rpc message-id="114514" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <edit-config operation="merge">
+        <target><running/></target>
+        <error-option>stop-on-error</error-option>
+        <config>
+        <featurename istop="true" type="cli">
+            <stelnet>server enable</stelnet>
+            <ssh>authentication-type default password</ssh>
+            <user-interface>vty 0 4</user-interface>
+            <authentication-mode>aaa</authentication-mode>
+            <protocol>inbound all</protocol>
+        </featurename>
+        </config>
+    </edit-config>
+</rpc>

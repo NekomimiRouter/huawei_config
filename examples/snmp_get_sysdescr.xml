@@ -1,0 +1,11 @@
+<rpc message-id="114514" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get>
+        <filter type="subtree">
+            <featurename istop="true" type="mib">
+                <system position="iso.org.dod.internet.mgmt.mib-2">
+                    <sysDescr/>
+                </system>
+            </featurename>
+        </filter>
+    </get>
+</rpc>

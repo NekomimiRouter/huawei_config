@@ -1,0 +1,13 @@
+<rpc message-id="811451439" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <edit-config operation="merge">
+        <target>
+            <running/>
+        </target>
+        <error-option>stop-on-error</error-option>
+        <config>
+            <featurename istop="true" type="cli">
+                <display>device</display>
+            </featurename>
+        </config>
+    </edit-config>
+</rpc>

@@ -1,0 +1,9 @@
+<rpc message-id="843" xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+    <get>
+        <filter type="subtree">
+            <featurename istop="true" type="mib">
+                <hwStackObject position="iso.org.dod.internet.private.enterprises.huawei.huaweiMgmt.hwDatacomm.huaweiStackMIB"><hwStackRun/></hwStackObject>
+            </featurename>
+        </filter>
+    </get>
+</rpc>
