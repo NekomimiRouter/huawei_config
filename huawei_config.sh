@@ -20,7 +20,7 @@ function login() {
 
     SESSION_ID=$(grep -ohP "SessionID=(\w+)" <<< "${RET_TEMP}" | cut -d'=' -f2)
     TOKEN=$(grep -ohP "Token=(\w+)" <<< "${RET_TEMP}" | cut -d'=' -f2)
-    echo "Logged in"
+    echo "Logged in."
 }
 
 function config() {
@@ -32,7 +32,7 @@ function config() {
         -H "Cookie: SessionID=${SESSION_ID}" \
         --data "MessageID=114514&${CONFIG_XML}]]>]]>"
 
-        echo -e "\n\nConfig done."
+    echo -e "\n\nConfig done."
 }
 
 login
