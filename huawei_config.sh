@@ -36,7 +36,8 @@ function keepalive() {
 }
 
 # Get another token
-# Note: the argument "_" is required, its content does not matter
+# I don't know if it is of any usefulness
+# Note: the argument "_" is required, its content does not matter (just a random number to prevent browser caching)
 function token_refresh() {
     RET_TEMP=$(
         curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/token.cgi?_=0" \
@@ -49,7 +50,7 @@ function token_refresh() {
     echo "Token refreshed."
 }
 
-# Unknown function
+# Unknown function to query some fixed status data
 # Usage: customize_service args
 # call patterns:
 # "CustomizeCode=173"
