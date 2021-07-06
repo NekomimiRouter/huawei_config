@@ -10,7 +10,7 @@ DEVICE_PASSWORD="Admin@huawei.com"
 SESSION_ID=""
 TOKEN=""
 
-# authenticate to the web service with username & password
+# Authenticate to the web service with username & password
 function login() {
     RET_TEMP=$(
         curl -Lv --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/login.cgi" \
@@ -24,7 +24,7 @@ function login() {
     echo "Logged in."
 }
 
-# called every 20s to keep the session alive
+# Must be called every 20s to keep the session alive
 function keepalive() {
     curl --insecure --compressed -X 'POST' "${DEVICE_HTTPS_URL_BASE}/handshake.cgi" \
         -H 'Content-Type: application/x-www-form-urlencoded; charset=UTF-8' \
@@ -49,6 +49,7 @@ function token_refresh() {
 }
 
 # Unknown function
+# Usage: customize_service args
 # call patterns:
 # "CustomizeCode=173"
 # "CustomizeCode=126"
@@ -60,8 +61,9 @@ function customize_service() {
         --data-raw "$1"
 }
 
-# get/set device status
+# NETCONF api
 # Usage: config path/to/commands.xml
+# XML examples are in the examples directory; see official documentation too
 function config() {
     CONFIG_XML=$(<"$1")
 
@@ -74,6 +76,7 @@ function config() {
     echo -e "\n\nConfig done."
 }
 
+# Upload a file to the switch
 # Usage: upload_file local_path remote_filename
 # example: `upload_file ./s1720.cfg s1720.cfg`
 # remote filename must be full lower case & ends in a known extension (e.g. *.cfg) & must not be too long
@@ -83,6 +86,7 @@ function upload_file() {
         --form "uploadFile_fileDivfileInput=@$1;filename=$2"
 }
 
+# Download a file from the switch
 # Usage: download_file remote_path local_path
 # example: `download_file "flash:/s1720-gw-v200r019sph025.pat" "./test.pat"`
 function download_file() {
@@ -91,6 +95,7 @@ function download_file() {
         --output "$2"
 }
 
+# main procedure
 source ./credential.sh || true
 login
 config ./examples/cli_config_auth.xml
