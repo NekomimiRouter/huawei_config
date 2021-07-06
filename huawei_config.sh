@@ -73,5 +73,6 @@ function config() {
     echo -e "\n\nConfig done."
 }
 
+source ./credential.sh || true
 login
 config ./examples/cli_config_auth.xml
