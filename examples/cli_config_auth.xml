@@ -4,11 +4,14 @@
         <error-option>stop-on-error</error-option>
         <config>
         <featurename istop="true" type="cli">
+            <aaa/>
+            <local-user>admin service-type terminal ssh ftp http</local-user>
+            <quit/>
             <stelnet>server enable</stelnet>
             <ssh>authentication-type default password</ssh>
             <user-interface>vty 0 4</user-interface>
             <authentication-mode>aaa</authentication-mode>
-            <protocol>inbound all</protocol>
+            <protocol>inbound ssh</protocol>
         </featurename>
         </config>
     </edit-config>
